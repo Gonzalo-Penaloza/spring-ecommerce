@@ -1,18 +1,19 @@
 package com.tadd.ecommerce.controller;
 
+import java.util.Optional;
+
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.tadd.ecommerce.model.Producto;
 import com.tadd.ecommerce.model.Usuario;
 import com.tadd.ecommerce.service.ProductoService;
 
-import ch.qos.logback.core.model.Model;
 
 
 @Controller
@@ -46,5 +47,26 @@ public class ProductoController {
 		productoService.save(producto);
 		
 		return "redirect:/productos";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable Integer id, ModelMap model) {
+		Producto producto = new Producto();
+		Optional<Producto> optionalProduct = productoService.get(id);
+		
+		producto = optionalProduct.get();
+		
+		log.info("Producto buscado: {}", producto);
+		
+		model.addAttribute("producto", producto);
+		
+		return "productos/edit";
+	}
+	
+	@PostMapping("/update")
+	public String update(Producto producto) {
+		 productoService.save(producto);
+		 
+		 return "redirect:/productos";
 	}
 }
