@@ -24,10 +24,8 @@ import com.tadd.ecommerce.service.UploadFileService;
 public class ProductoController {
 
 	private final Logger log = LoggerFactory.getLogger(ProductoController.class);
-
 	@Autowired
 	private ProductoService productoService;
-
 	@Autowired
 	private UploadFileService upload;
 
