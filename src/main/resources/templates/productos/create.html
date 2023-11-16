@@ -23,7 +23,7 @@
 <body>
 
 	<!-- Navigation -->
-	<div th:replace="~{fragments/header :: header}"></div>
+	<div th:insert="~{fragments/admin/admin_template :: header}"></div>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -93,7 +93,7 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<div th:replace="~{fragments/footer :: footer}"></div>
+	<div th:insert="~{fragments/admin/admin_template :: footer}"></div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
