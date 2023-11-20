@@ -34,7 +34,7 @@
 		</h1>
 
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
 			<li class="breadcrumb-item active">Producto</li>
 		</ol>
 
@@ -47,7 +47,7 @@
 						</a>
 					</div>
 					<div class="col-lg-6">
-						<form action="carrito.html" method="POST">
+						<form th:action="@{/cart}" method="POST">
 							<h2 class="card-title">Nombre producto</h2>
 
 							<ul class="list-group">
